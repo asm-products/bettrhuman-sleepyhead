@@ -1,0 +1,5 @@
+http_port ${device.AssignedPort}
+acl ${device.AuthName}_Port myport ${device.AssignedPort}
+acl ${device.AuthName}_IPs src "/etc/squid3/userACLs/userWhiteLists/${device.AuthName}ClientIPWhiteList"
+http_access allow ${device.AuthName}_IPs ${device.AuthName}_Port
+http_access allow CONNECT port_443 ${device.AuthName}_Port ${device.AuthName}_IPs

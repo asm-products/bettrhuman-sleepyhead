@@ -1,0 +1,51 @@
+*.class
+*pyc
+rest/logs
+ivr/logs
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*target*
+
+# eclipse #
+.settings/
+.classpath
+.project
+.launch
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+bin/
+dependency-reduced-pom.xml
+*.log
+*.ulaw
+msg*.txt
+*.pyc
+
+bla.txt
+busy.wav
+rest/src/main/java/com/jive/ftw/voicemail/api/rest/filters/MailboxJiaoFilter.java.BACKUP.37262.java
+rest/src/main/java/com/jive/ftw/voicemail/api/rest/filters/MailboxJiaoFilter.java.BASE.37262.java
+rest/src/main/java/com/jive/ftw/voicemail/api/rest/filters/MailboxJiaoFilter.java.LOCAL.37262.java
+rest/src/main/java/com/jive/ftw/voicemail/api/rest/filters/MailboxJiaoFilter.java.REMOTE.37262.java
+.pydevproject
+*.war
+.settings
+endpoint-libs
+objects/
+logs/
+refs/
+hooks/

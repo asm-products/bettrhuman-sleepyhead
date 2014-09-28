@@ -1,0 +1,63 @@
+{
+  "extends" : "thirdParty.api",
+  "abstract" : false,
+  "root" : "https://bettrhuman.appspot.com/_ah/api",
+  "name" : "humans",
+  "version" : "v1",
+  "defaultVersion" : false,
+  "adapter" : {
+    "bns" : "https://bettrhuman.appspot.com/_ah/spi",
+    "deadline" : 65.0,
+    "type" : "lily"
+  },
+  "auth" : {
+    "allowCookieAuth" : false
+  },
+  "frontendLimits" : {
+    "unregisteredUserQps" : -1,
+    "unregisteredQps" : -1,
+    "unregisteredDaily" : -1,
+    "rules" : [ ]
+  },
+  "cacheControl" : {
+    "type" : "no-cache",
+    "maxAge" : 0
+  },
+  "methods" : {
+    "humans.login" : {
+      "path" : "human/login",
+      "httpMethod" : "GET",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ "replace this with the Webclient Id" ],
+      "clientIds" : [ "replace this with the Webclient Id", "replace this with your Android client ID", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.bettrhuman.sleepyhead.api.HumanApi.login",
+      "request" : {
+        "body" : "empty"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    }
+  },
+  "descriptor" : {
+    "schemas" : {
+      "HumanEntity" : {
+        "id" : "HumanEntity",
+        "type" : "object",
+        "properties" : {
+          "email" : {
+            "type" : "string"
+          }
+        }
+      }
+    },
+    "methods" : {
+      "com.bettrhuman.sleepyhead.api.HumanApi.login" : {
+        "response" : {
+          "$ref" : "HumanEntity"
+        }
+      }
+    }
+  }
+}
