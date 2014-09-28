@@ -14,7 +14,7 @@ import com.google.appengine.api.users.User;
 public class AuthFilter implements IAuthFilter
 {
 
-  IHumanService humanService;
+  private IHumanService humanService;
   
   @Override
   public void authenticate(User user) throws UnauthorizedException

@@ -7,6 +7,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class Human {
 
-	public String email;
+	private String email;
 	
 }

@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class CloudFile {
-	String filename;
-	String bucket;
-	boolean publicallyAccessible;
+	private String filename;
+	private String bucket;
+	private boolean publicallyAccessible;
 }
