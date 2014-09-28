@@ -15,7 +15,7 @@
 		<welcome-file>index.html</welcome-file>
 	</welcome-file-list>
 	<listener>
-		<listener-class>ninja.device.rest.guice.Listener</listener-class>
+		<listener-class>com.bettrhuman.sleepyhead.api.guice.Listener</listener-class>
 	</listener>
 	<filter>
 		<filter-name>guiceFilter</filter-name>
