@@ -7,7 +7,7 @@ import com.bettrhuman.service.HumanService;
 import com.bettrhuman.service.IHumanService;
 import com.bettrhuman.service.utilities.GoogleCloudStorage;
 import com.bettrhuman.service.utilities.ICloudStorage;
-import com.bettrhuman.sleepyhead.api.HumanApi;
+import com.bettrhuman.sleepyhead.api.HumanAPI;
 import com.bettrhuman.sleepyhead.utilities.AuthFilter;
 import com.bettrhuman.sleepyhead.utilities.IAuthFilter;
 import com.google.api.server.spi.guice.GuiceSystemServiceServletModule;
@@ -30,7 +30,7 @@ public class SleepyHeadModule extends GuiceSystemServiceServletModule {
 
 	    // Add API classes
 	    Set<Class<?>> serviceClasses = new HashSet<Class<?>>();
-	    serviceClasses.add(HumanApi.class);
+	    serviceClasses.add(HumanAPI.class);
 
 	    this.serveGuiceSystemServiceServlet("/_ah/spi/*", serviceClasses);
 	  }
