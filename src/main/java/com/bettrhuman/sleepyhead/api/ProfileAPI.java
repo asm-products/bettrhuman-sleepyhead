@@ -2,6 +2,8 @@ package com.bettrhuman.sleepyhead.api;
 
 import java.util.logging.Logger;
 
+import javax.inject.Inject;
+
 import com.bettrhuman.service.IProfileService;
 import com.bettrhuman.service.utilities.Constants;
 import com.bettrhuman.sleepyhead.api.models.ProfileEntity;
@@ -25,16 +27,16 @@ public class ProfileAPI {
 	private IAuthFilter authFilter;
 	private IProfileService profileService;
 
+	@Inject
 	public ProfileAPI(IAuthFilter authFilter, IProfileService profileService) {
 		this.authFilter = authFilter;
 		this.profileService = profileService;
 	}
 
-	@ApiMethod(name = "readProfile", httpMethod = HttpMethod.GET, path = "{profileId}")
-	public ProfileEntity login(User user, @Named("profileId") Long profileId)
+	@ApiMethod(name = "readProfile", httpMethod = HttpMethod.GET, path = "profile/{profileId}")
+	public ProfileEntity readProfile(User user, @Named("profileId") Long profileId)
 			throws UnauthorizedException {
-		authFilter.authenticate(user);
-
 		return new ProfileEntity(profileService.readProfile(profileId));
 	}
+	
 }

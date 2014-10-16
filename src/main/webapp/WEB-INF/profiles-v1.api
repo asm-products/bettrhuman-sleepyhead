@@ -25,13 +25,13 @@
   },
   "methods" : {
     "profiles.readProfile" : {
-      "path" : "{profileId}",
+      "path" : "profile/{profileId}",
       "httpMethod" : "GET",
       "authLevel" : "NONE",
       "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
       "audiences" : [ "replace this with the Webclient Id" ],
       "clientIds" : [ "replace this with the Webclient Id", "replace this with your Android client ID", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.bettrhuman.sleepyhead.api.ProfileAPI.login",
+      "rosyMethod" : "com.bettrhuman.sleepyhead.api.ProfileAPI.readProfile",
       "request" : {
         "parameters" : {
           "profileId" : {
@@ -52,11 +52,15 @@
         "id" : "ProfileEntity",
         "type" : "object",
         "properties" : {
+          "id" : {
+            "type" : "string",
+            "format" : "int64"
+          }
         }
       }
     },
     "methods" : {
-      "com.bettrhuman.sleepyhead.api.ProfileAPI.login" : {
+      "com.bettrhuman.sleepyhead.api.ProfileAPI.readProfile" : {
         "response" : {
           "$ref" : "ProfileEntity"
         }
