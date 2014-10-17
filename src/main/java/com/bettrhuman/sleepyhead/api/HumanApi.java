@@ -47,12 +47,10 @@ public class HumanAPI {
 		return new HumanEntity(human);
 	}
 
-	@ApiMethod(name = "createUser", httpMethod = HttpMethod.POST, path = "human/facebookIdentifier")
-	public HumanEntity createUser(User user,
-			@Named("fbAccessToken") String fbAccessToken,
+	@ApiMethod(name = "getUser", httpMethod = HttpMethod.POST, path = "human/facebookIdentifier")
+	public HumanEntity getUser(User user, @Named("fbAccessToken") String fbAccessToken,
 			FacebookIdentifier facebookUserId) throws UnauthorizedException {
-		Human human = authFilter.authenticate(new UserCredential(user, fbAccessToken));
-		
+		//Human human = authFilter.authenticate(new UserCredential(user, fbAccessToken));
 		return new HumanEntity(humanService.birth(facebookUserId));
 	}
 }

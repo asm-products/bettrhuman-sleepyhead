@@ -24,6 +24,28 @@
     "maxAge" : 0
   },
   "methods" : {
+    "humans.getUser" : {
+      "path" : "human/facebookIdentifier",
+      "httpMethod" : "POST",
+      "authLevel" : "NONE",
+      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
+      "audiences" : [ "replace this with the Webclient Id" ],
+      "clientIds" : [ "replace this with the Webclient Id", "replace this with your Android client ID", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
+      "rosyMethod" : "com.bettrhuman.sleepyhead.api.HumanAPI.getUser",
+      "request" : {
+        "parameters" : {
+          "fbAccessToken" : {
+            "type" : "string",
+            "required" : true
+          }
+        },
+        "body" : "autoTemplate(backendRequest)",
+        "bodyName" : "resource"
+      },
+      "response" : {
+        "body" : "autoTemplate(backendResponse)"
+      }
+    },
     "humans.login" : {
       "path" : "human/login",
       "httpMethod" : "GET",
@@ -44,32 +66,19 @@
       "response" : {
         "body" : "autoTemplate(backendResponse)"
       }
-    },
-    "humans.createUser" : {
-      "path" : "human/facebookIdentifier",
-      "httpMethod" : "POST",
-      "authLevel" : "NONE",
-      "scopes" : [ "https://www.googleapis.com/auth/userinfo.email" ],
-      "audiences" : [ "replace this with the Webclient Id" ],
-      "clientIds" : [ "replace this with the Webclient Id", "replace this with your Android client ID", "replace this with your iOS client ID", "292824132082.apps.googleusercontent.com" ],
-      "rosyMethod" : "com.bettrhuman.sleepyhead.api.HumanAPI.createUser",
-      "request" : {
-        "parameters" : {
-          "fbAccessToken" : {
-            "type" : "string",
-            "required" : true
-          }
-        },
-        "body" : "autoTemplate(backendRequest)",
-        "bodyName" : "resource"
-      },
-      "response" : {
-        "body" : "autoTemplate(backendResponse)"
-      }
     }
   },
   "descriptor" : {
     "schemas" : {
+      "FacebookIdentifier" : {
+        "id" : "FacebookIdentifier",
+        "type" : "object",
+        "properties" : {
+          "facebookUserId" : {
+            "type" : "string"
+          }
+        }
+      },
       "HumanEntity" : {
         "id" : "HumanEntity",
         "type" : "object",
@@ -91,27 +100,18 @@
             "format" : "int64"
           }
         }
-      },
-      "FacebookIdentifier" : {
-        "id" : "FacebookIdentifier",
-        "type" : "object",
-        "properties" : {
-          "facebookUserId" : {
-            "type" : "string"
-          }
-        }
       }
     },
     "methods" : {
-      "com.bettrhuman.sleepyhead.api.HumanAPI.login" : {
+      "com.bettrhuman.sleepyhead.api.HumanAPI.getUser" : {
+        "request" : {
+          "$ref" : "FacebookIdentifier"
+        },
         "response" : {
           "$ref" : "HumanEntity"
         }
       },
-      "com.bettrhuman.sleepyhead.api.HumanAPI.createUser" : {
-        "request" : {
-          "$ref" : "FacebookIdentifier"
-        },
+      "com.bettrhuman.sleepyhead.api.HumanAPI.login" : {
         "response" : {
           "$ref" : "HumanEntity"
         }
